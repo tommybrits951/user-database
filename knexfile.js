@@ -1,5 +1,5 @@
 require("dotenv").config()
-const env = process.env.NODE_DB_PASSWORD;
+const env = process.env.NODE_DB_PASSWORD
 // Update with your config settings.
 
 /**

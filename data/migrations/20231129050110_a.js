@@ -10,7 +10,7 @@ exports.up = function(knex) {
     tbl.string("gender", 7).notNullable()
     tbl.date("dob").notNullable()
     tbl.integer("postal").notNullable()
-    tbl.integer("phone")
+    tbl.string("phone")
     tbl.string("email").notNullable()
     tbl.string("password").notNullable()
   })

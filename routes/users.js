@@ -1,7 +1,6 @@
 const router = require("express").Router()
-const Users = require("../models/users");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs")
+const Users = require("../models/users")
 
 router.get("/:id", async (req, res, next) => {
     try {
@@ -15,9 +14,11 @@ router.get("/:id", async (req, res, next) => {
 
 router.post("/reg", async (req, res, next) => {
     try {
-        const content = req.body;
+        let content = req.body;
         const hash = bcrypt.hashSync(content.password, 8);
-        const user = await Users.insertUser({...content, password: hash})
+        content.password = hash
+        const user = await Users.insertUser(content)
+        console.log(user)
         if(user) {
             res.status(201).json(user)
         } else {
@@ -32,4 +33,4 @@ router.post("/reg", async (req, res, next) => {
 router.use((err, req, res, next) => {
     res.status(500).json({message: err.message || "Something's wrong!"})
 })
-module.exports = router;
+module.exports = router

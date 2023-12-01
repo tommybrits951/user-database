@@ -1,4 +1,4 @@
-const db = require("../db");
+const db = require("../db")
 
 
 function getById(id) {
@@ -12,6 +12,6 @@ async function insertUser(user) {
 }
 
 module.exports = {
-    getById,
-    insertUser
+    insertUser,
+    getById
 }
